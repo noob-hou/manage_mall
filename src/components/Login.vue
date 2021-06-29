@@ -4,16 +4,16 @@
         <div class="logo">
           <img src="~@/assets/logo.png" alt="">
         </div>
-        <el-form label-width="0px" class="inputs" :model="form">
-          <el-form-item>
+        <el-form label-width="0px" class="inputs" :model="form" :rules="loginRules" ref="loginRef">
+          <el-form-item prop="username">
             <el-input prefix-icon="iconfont icon-yonghu1" v-model="form.username"></el-input>
           </el-form-item>
-          <el-form-item>
+          <el-form-item prop="password">
             <el-input type="password" prefix-icon="iconfont icon-mima" v-model="form.password"></el-input>
           </el-form-item>
           <el-form-item class="btns">
-            <el-button type="primary">登录</el-button>
-            <el-button type="info">重置</el-button>
+            <el-button type="primary" @click="loginClick">登录</el-button>
+            <el-button type="info" @click="emptyClick">重置</el-button>
           </el-form-item>
       </el-form>
       </div>
@@ -25,9 +25,32 @@ export default {
 data() {
   return {
     form:{
-      username:'',
-      password:''
+      username:'admin',
+      password:'123456'
+    },
+    loginRules:{
+      username:[{required:true,message:'请输入用户名',tigger:'blur'},
+                {min:3,max:10,message:'用户名长度3到6个字符',tigger:'blur'},
+      ],
+      password:[{required:true,message:'请输入密码',tigger:'blur'},
+                {min:6,max:15,message:'密码长度6到15个字符',tigger:'blur'},
+      ]
     }
+  }
+},
+methods: {
+  emptyClick(){
+    this.$refs.loginRef.resetFields();
+  },
+  loginClick(){
+    this.$refs.loginRef.validate(async valid => {
+      if(!valid) return;
+      const {data:res} =await this.$http.post('login',this.form)
+      if(res.meta.status !== 200) return this.$message.error('用户名密码不正确')
+      this.$message.success('登录成功')
+      window.sessionStorage.setItem('token',res.data.token)
+      this.$router.push('/home')
+    })
   }
 },
 }
