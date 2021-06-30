@@ -29,11 +29,11 @@ data() {
       password:'123456'
     },
     loginRules:{
-      username:[{required:true,message:'请输入用户名',tigger:'blur'},
-                {min:3,max:10,message:'用户名长度3到6个字符',tigger:'blur'},
+      username:[{required:true,message:'请输入用户名',trigger:'blur'},
+                {min:3,max:10,message:'用户名长度3到6个字符',trigger:'blur'},
       ],
       password:[{required:true,message:'请输入密码',tigger:'blur'},
-                {min:6,max:15,message:'密码长度6到15个字符',tigger:'blur'},
+                {min:6,max:15,message:'密码长度6到15个字符',trigger:'blur'},
       ]
     }
   }

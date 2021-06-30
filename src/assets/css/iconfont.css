@@ -1,7 +1,7 @@
 @font-face {
     font-family: "iconfont";
     /* Project id 2503052 */
-    src: url('//at.alicdn.com/t/font_2503052_850l7a41mu6.woff2?t=1624890204828') format('woff2'), url('//at.alicdn.com/t/font_2503052_850l7a41mu6.woff?t=1624890204828') format('woff'), url('//at.alicdn.com/t/font_2503052_850l7a41mu6.ttf?t=1624890204828') format('truetype');
+    src: url('//at.alicdn.com/t/font_2503052_tcevvu4rx5r.woff2?t=1624960834396') format('woff2'), url('//at.alicdn.com/t/font_2503052_tcevvu4rx5r.woff?t=1624960834396') format('woff'), url('//at.alicdn.com/t/font_2503052_tcevvu4rx5r.ttf?t=1624960834396') format('truetype');
 }
 
 .iconfont {
@@ -10,6 +10,30 @@
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-users:before {
+    content: "\e830";
+}
+
+.icon-tijikongjian:before {
+    content: "\e89f";
+}
+
+.icon-baobiao:before {
+    content: "\e613";
+}
+
+.icon-shangpin:before {
+    content: "\e60b";
+}
+
+.icon-dingdan:before {
+    content: "\e60e";
+}
+
+.icon-Usercertification-Filled:before {
+    content: "\e6b2";
 }
 
 .icon-yonghu1:before {
