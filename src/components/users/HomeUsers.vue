@@ -27,7 +27,11 @@
         </el-col>
       </el-row>
     </el-card>
-    <users-table :data="userList" @remove="remove" />
+    <users-table
+      :data="userList"
+      @remove="remove"
+      @allocationPower="allocationPower"
+    />
     <home-page
       :data="queryInfo"
       :total="total"
@@ -36,16 +40,18 @@
     />
     <add-user ref="adduser" @addUser="addSusscess" />
     <updated-user @submit="submit" />
+    <allocation ref="allocation" @YesAllocation="YesAllocation" />
   </div>
 </template>
 
 <script>
 import AddUser from "./AddUser.vue";
+import Allocation from "./Allocation.vue";
 import HomePage from "./HomePage.vue";
 import UpdatedUser from "./UpdatedUser.vue";
 import UsersTable from "./UsersTable.vue";
 export default {
-  components: { UsersTable, HomePage, AddUser, UpdatedUser },
+  components: { UsersTable, HomePage, AddUser, UpdatedUser, Allocation },
   data() {
     return {
       queryInfo: {
@@ -96,6 +102,15 @@ export default {
     remove(res) {
       this.getUserList();
       return this.$message.success("添加成功");
+    },
+    allocationPower() {
+      this.$refs.allocation.dialogFormVisible = true;
+    },
+    YesAllocation(res) {
+      if (res.meta.status == 200) {
+        this.getUserList();
+        this.$message.success("设置权限角色成功");
+      }
     },
   },
 };

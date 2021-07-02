@@ -39,6 +39,7 @@
             type="warning"
             icon="el-icon-setting"
             size="mini"
+            @click="allocationPower(scope.row)"
           ></el-button>
         </template>
       </el-table-column>
@@ -82,6 +83,12 @@ export default {
         this.$emit('remove',res)
       }
     },
+    //分配权限展开
+    async allocationPower(info){
+       this.$emit('allocationPower')
+       const {data:res} = await this.$http.get('roles')
+       bus.$emit('allocationPower',res,info)
+    }
   },
 };
 </script>

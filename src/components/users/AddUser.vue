@@ -92,7 +92,6 @@ export default {
         dialogVisible(){
           this.
           this.$refs.ruleForm.validate((valid)=>{
-                console.log(valid);
           })
         }
       },
