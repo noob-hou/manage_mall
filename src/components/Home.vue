@@ -5,6 +5,7 @@
         <div class="header-left">
           <img src="../assets/logo1.png" alt="" height="50" />
           <span>noob_hou商城后台管理系统</span>
+          <el-button type="info" class="tuichu" @click="quitClick">退出登录</el-button>
         </div>
       </el-header>
       <el-container>
@@ -45,6 +46,10 @@ export default {
         this.width= 56
       }
       
+    },
+    quitClick(){
+      window.sessionStorage.clear('token')
+      this.$router.push('/login')
     }
   },
 };
@@ -61,6 +66,7 @@ export default {
 .el-header {
   background-color: #333744;
   padding: 10px;
+  position: relative;
 }
 .el-main {
   background-color: #eaedf1;
@@ -85,5 +91,10 @@ export default {
   font-size: 10px;
   cursor: pointer;
   
+}
+.tuichu{
+  position: absolute;
+  right: 0;
+  top: 10px;
 }
 </style>

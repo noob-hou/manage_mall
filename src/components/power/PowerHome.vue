@@ -25,7 +25,6 @@ export default {
         async getPowerList(){
         const{data:res} = await this.$http.get('rights/list')
         this.powerList = res
-        console.log(this.powerList);
         }
     },
 }

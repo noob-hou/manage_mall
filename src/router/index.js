@@ -32,6 +32,30 @@ const routes = [{
         path: 'roles',
         component: () =>
             import ('../components/power/Part.vue')
+    }, {
+        path: 'categories',
+        component: () =>
+            import ('../components/shop/ShopCategory.vue')
+    }, {
+        path: 'params',
+        component: () =>
+            import ('../components/shop/ShopParams.vue')
+    }, {
+        path: 'goods',
+        component: () =>
+            import ('../components/shop/shoplist/ShopList.vue')
+    }, {
+        path: '/home/goods/add',
+        component: () =>
+            import ('../components/shop/shoplist/AddShop.vue')
+    }, {
+        path: 'orders',
+        component: () =>
+            import ('../components/orders/OrderList.vue')
+    }, {
+        path: 'reports',
+        component: () =>
+            import ('../components/dataView/DataView.vue')
     }]
 }]
 
